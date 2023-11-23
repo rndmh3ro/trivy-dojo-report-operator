@@ -4,5 +4,25 @@ on: [push, pull_request]
 
 jobs:
   linting:
-    # docs: https://github.com/telekom-mms/.github#golang-linting
-    uses: telekom-mms/.github/.github/workflows/golang_linting.yml@main
+    # docs: https://github.com/telekom-mms/.github#python-linting
+    #uses: telekom-mms/.github/.github/workflows/python.yml@main
+    #
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v2
+
+      - name: Install required dependencies
+        run: poetry install
+
+      - name: Run black
+        run: poetry run black src/
