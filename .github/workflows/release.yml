@@ -35,6 +35,8 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           ref: gh-pages
+          # we do not want to delete the created chart
+          clean: false
 
       - name: Update index.yaml
         run: helm repo index . --merge index.yaml --url "https://github.com/telekom-mms/trivy-dojo-report-operator/releases/download/${VERSION_TAG}/"
@@ -44,7 +46,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           push-branch: gh-pages
-          commit-message: Update version to $VERSION_TAG
+          commit-message: Update version to new version
           force-add: 'true'
           files: index.yaml
           name: Deutsche Telekom MMS
