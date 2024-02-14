@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.5](https://github.com/rndmh3ro/trivy-dojo-report-operator/tree/0.5.5) (2024-02-14)
+
+[Full Changelog](https://github.com/rndmh3ro/trivy-dojo-report-operator/compare/0.5.4...0.5.5)
+
 ## [0.5.4](https://github.com/rndmh3ro/trivy-dojo-report-operator/tree/0.5.4) (2024-02-14)
 
 [Full Changelog](https://github.com/rndmh3ro/trivy-dojo-report-operator/compare/0.5.3...0.5.4)
